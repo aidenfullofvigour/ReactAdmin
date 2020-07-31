@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Father(name,age){
+        this.name = name;
+        this.age = age;
+    }
+    Father.prototype.setName = function (name) {
+        this.name = name
+    }
+    function Son(name,age,sex){
+        Father.call(this,name,age);
+        this.sex = sex
+    }
+    Son.prototype.__proto__ = Father.prototype;
+    var s = new Son('liulan',18,'男')
+    s.setName('bob')
+    console.log(s)
+</script>
+</body>
+</html>
